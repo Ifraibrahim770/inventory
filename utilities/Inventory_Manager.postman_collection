@@ -1,0 +1,224 @@
+{
+	"info": {
+		"_postman_id": "84036edf-4238-4000-9488-b7aa713e5671",
+		"name": "Inventory Manager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12262850"
+	},
+	"item": [
+		{
+			"name": "Add New User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"ibrahim\",\r\n    \"email\":\"ifraibrahim60@gmail.com\",\r\n    \"password\": \"Password123\",\r\n    \"roles\":\"ROLE_USER\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/auth/addNewUser",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"auth",
+						"addNewUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpYnJhaGltIiwiaWF0IjoxNjk1ODA2NTA4LCJleHAiOjE2OTU4MDgzMDh9.KdO9T4RxoNXd4QWdKFZ7cgR0d8IslW0vCDRfInKjQDk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Air Jordan Shoes\",\r\n    \"quantity\":\"3\",\r\n    \"unitPrice\": \"KSH 300\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/inventory/addProduct",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"inventory",
+						"addProduct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload Excel",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpYnJhaGltIiwiaWF0IjoxNjk1ODA2NTA4LCJleHAiOjE2OTU4MDgzMDh9.KdO9T4RxoNXd4QWdKFZ7cgR0d8IslW0vCDRfInKjQDk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/idiba/Downloads/product_list.xlsx"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/inventory/uploadFile",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"inventory",
+						"uploadFile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpYnJhaGltIiwiaWF0IjoxNjk1ODA2NTA4LCJleHAiOjE2OTU4MDgzMDh9.KdO9T4RxoNXd4QWdKFZ7cgR0d8IslW0vCDRfInKjQDk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Air Jordan Kicks\",\r\n    \"quantity\":\"3\",\r\n    \"unitPrice\": \"KSH 300\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/inventory/1/updateProduct",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"inventory",
+						"1",
+						"updateProduct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpYnJhaGltIiwiaWF0IjoxNjk1ODA2NTA4LCJleHAiOjE2OTU4MDgzMDh9.KdO9T4RxoNXd4QWdKFZ7cgR0d8IslW0vCDRfInKjQDk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Air Jordan Kicks\",\r\n    \"quantity\":\"3\",\r\n    \"unitPrice\": \"KSH 300\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/inventory/1/deleteProduct",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"inventory",
+						"1",
+						"deleteProduct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Token",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"ibrahim\",\r\n    \"password\": \"Password123\"\r\n\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/auth/generateToken",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"auth",
+						"generateToken"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "localhost:8080"
+		}
+	]
+}

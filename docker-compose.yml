@@ -7,15 +7,10 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
       MYSQL_DATABASE: inventory
-      MYSQL_USER: ${SPRING_DATASOURCE_USERNAME}
-      MYSQL_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
     ports:
-      - "3306:3306"
+      - "3307:3306"
 
-  redis:
-    image: "redis:latest"
-    ports:
-      - "6379:6379"
+
 
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
@@ -30,7 +25,7 @@ services:
     depends_on:
       - zookeeper
     ports:
-      - 29092:29092
+      - 9092:9092
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
@@ -57,9 +52,10 @@ services:
     ports:
       - "8080:8080"
     depends_on:
+      - kafka
       - mysql
-      -  kafka
     env_file: .env
+
     
 
     
