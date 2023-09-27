@@ -1,35 +1,49 @@
-# inventory
-A simple leaderboard backend application
+# Inventory Manager
 
-Technologies used, Java, MySQL, Kafka and RabbitMQ
+A simple inventory backend application built using Java, MySQL, and Kafka.
 
-The postman collection can be found [HERE](collection/leaderboard_collection.json)
+[Postman Collection](collection/leaderboard_collection.json)
 
+## Deploy Locally
 
-## To deploy the project (Locally):<br>
-- Install Docker (get it from [HERE](https://docs.docker.com/get-docker/):  and make sure its added to the PATH
-- Navigate to the project's root directory
-- Open a terminal session using Windows Terminal, GitBash or any other CLI tool
-- Run the command:<br>
+To deploy the project locally:
+
+1. Install Docker from [here](https://docs.docker.com/get-docker/) and ensure it's added to your PATH.
+
+2. Navigate to the project's root directory.
+
+3. Open a terminal session (Windows Terminal, GitBash, or any CLI tool).
+
+4. Build the Docker image:
+
   ```
   docker-compose build
   ```
 -  Then once the image has finished building
 
-```
-docker-compose up
-```
+  ```
+  docker-compose up
+  ```
 
-- Wait for the image to build and run on port 8080
+- Wait for the image and containers to run, the spring app will launch at port 8080 by default.
 
 
 ## Setup Instructions
-- First, invoke the addUser endpoint  to save a user onto the db
-- Next invoke the getToken endpoint to get the auth token, use the same credentials of the user created above
-- Use the token as the bearer token for all other requests
-- Alternatively you can use the postman [collection](utilities/Inventory_Manager.postman_collection) bundle.
-- To upload the product excel go to the 'Upload Excel' endpoint on postman, switch to form data on body, switch the type of the field from text to file, then upload the sample excel.
--  The sample excel file can be found [here](utilities/product_list.xlsx);
 
-## Project Endpoints:<br>
-- All end-points and data needed can be found on the postman [collection](utilities/Inventory_Manager.postman_collection)
+Follow these steps to set up and use the project:
+
+1. Use the `addUser` endpoint to save a user to the database.
+
+2. Obtain an authentication token by invoking the `getToken` endpoint with the user credentials.
+
+3. Use the obtained token as the bearer token for all other requests.
+
+4. Alternatively, use the provided Postman [collection](utilities/Inventory_Manager.postman_collection) bundle.
+
+5. To upload a product Excel file, go to the 'Upload Excel' endpoint in Postman, switch to 'form data' in the body, change the field type to file, and upload the sample Excel file.
+
+6. Find the sample Excel file [here](utilities/product_list.xlsx).
+
+## Project Endpoints
+
+Explore all project endpoints and data in the Postman [collection](utilities/Inventory_Manager.postman_collection).
