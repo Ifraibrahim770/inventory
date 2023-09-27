@@ -1,4 +1,4 @@
-package com.ibrahim.inventorymanager.services;
+package com.ibrahim.inventorymanager.dtos;
 
 
 import jakarta.persistence.Entity;

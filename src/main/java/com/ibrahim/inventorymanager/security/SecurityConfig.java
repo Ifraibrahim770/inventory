@@ -1,7 +1,7 @@
-package com.ibrahim.inventorymanager.configs;
+package com.ibrahim.inventorymanager.security;
 
 
-import com.ibrahim.inventorymanager.filters.JwtAuthFilter;
+import com.ibrahim.inventorymanager.security.JwtAuthFilter;
 import com.ibrahim.inventorymanager.services.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -45,6 +45,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests().requestMatchers("/auth/user/**").authenticated()
                 .and()
                 .authorizeHttpRequests().requestMatchers("/auth/admin/**").authenticated()
+                .and()
+                .authorizeHttpRequests().requestMatchers("/inventory/**").authenticated()
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)

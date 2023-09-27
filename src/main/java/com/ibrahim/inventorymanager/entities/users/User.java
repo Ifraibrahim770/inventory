@@ -1,4 +1,4 @@
-package com.ibrahim.inventorymanager.entities;
+package com.ibrahim.inventorymanager.entities.users;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserInfo {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -21,4 +21,5 @@ public class UserInfo {
     private String email;
     private String password;
     private String roles;
+    private boolean isActive;
 }

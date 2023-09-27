@@ -1,6 +1,6 @@
 package com.ibrahim.inventorymanager.services;
 
-import com.ibrahim.inventorymanager.entities.UserInfo;
+import com.ibrahim.inventorymanager.entities.users.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,7 +16,7 @@ public class UserInfoDetails implements UserDetails{
     private final String password;
     private final List<GrantedAuthority> authorities;
 
-    public UserInfoDetails(UserInfo userInfo) {
+    public UserInfoDetails(User userInfo) {
         name = userInfo.getName();
         password = userInfo.getPassword();
         authorities = Arrays.stream(userInfo.getRoles().split(","))

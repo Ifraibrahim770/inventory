@@ -1,4 +1,4 @@
-package com.ibrahim.inventorymanager.filters;
+package com.ibrahim.inventorymanager.security;
 
 import com.ibrahim.inventorymanager.services.JwtService;
 import com.ibrahim.inventorymanager.services.UserInfoService;

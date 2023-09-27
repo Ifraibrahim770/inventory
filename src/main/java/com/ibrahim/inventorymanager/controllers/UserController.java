@@ -3,11 +3,13 @@ package com.ibrahim.inventorymanager.controllers;
 
 
 
-import com.ibrahim.inventorymanager.entities.UserInfo;
-import com.ibrahim.inventorymanager.services.AuthRequest;
+import com.ibrahim.inventorymanager.dtos.BaseResponse;
+import com.ibrahim.inventorymanager.entities.users.User;
+import com.ibrahim.inventorymanager.dtos.AuthRequest;
 import com.ibrahim.inventorymanager.services.JwtService;
 import com.ibrahim.inventorymanager.services.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -29,29 +31,21 @@ public class UserController {
     @Autowired
     private AuthenticationManager authenticationManager;
 
-    @GetMapping("/welcome")
-    public String welcome() {
-        return "Welcome this endpoint is not secure";
-    }
 
     @PostMapping("/addNewUser")
-    public String addNewUser(@RequestBody UserInfo userInfo) {
+    public ResponseEntity<BaseResponse> addNewUser(@RequestBody User userInfo) {
         return service.addUser(userInfo);
     }
 
-    @GetMapping("/user/userProfile")
-    @PreAuthorize("hasAuthority('ROLE_USER')")
-    public String userProfile() {
-        return "Welcome to User Profile";
-    }
 
-    @GetMapping("/admin/adminProfile")
+    @PutMapping("/{userID}/update")
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
-    public String adminProfile() {
-        return "Welcome to Admin Profile";
+    public ResponseEntity<BaseResponse> updateUser(@RequestBody User userInfo, @RequestParam int userID) {
+        return service.updateUser(userInfo, userID);
     }
 
-    @PostMapping("/generateToken")
+
+    @GetMapping("/generateToken")
     public String authenticateAndGetToken(@RequestBody AuthRequest authRequest) {
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword()));
         if (authentication.isAuthenticated()) {
